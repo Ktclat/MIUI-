@@ -50,7 +50,13 @@ def verify(path):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     sections, symbols = coff(path)
-    require(sections['.text'][0] == module.CODE, 'assembler CODE mismatch')
+    actual = sections['.text'][0]
+    if actual != module.CODE:
+        first = next((i for i, (a, b) in enumerate(zip(actual, module.CODE)) if a != b),
+                     min(len(actual), len(module.CODE)))
+        raise ValueError('assembler CODE mismatch: lengths %d/%d, first offset 0x%x, actual %s, expected %s'
+                         % (len(actual), len(module.CODE), first,
+                            actual[first:first+16].hex(), module.CODE[first:first+16].hex()))
     require(sections['.xdata'][0] == module.XDATA, 'assembler unwind mismatch')
     expected_rel = [(site,name,4) for site,(name,_) in module.REL32.items()]
     require(sections['.text'][1] == expected_rel, 'Offline validation failed at source line 52')

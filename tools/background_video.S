@@ -12,7 +12,7 @@
 .extern native_post_business
 .extern native_time_iat
 
-.p2align 4
+.p2align 4, 0x90
 .globl background_close
 .seh_proc background_close
 background_close:
@@ -48,7 +48,7 @@ background_close:
     ret
 .seh_endproc
 
-.p2align 4
+.p2align 4, 0x90
 .globl background_resume_show
 .seh_proc background_resume_show
 background_resume_show:
@@ -87,7 +87,10 @@ background_resume_show:
  * Maximum packet = 5 + 1 + 10 + 2 + 2 = 20 bytes; allocate 32.
  * PostCmd owns/frees data only on true; false is released here exactly once.
  */
-.p2align 4
+/* Fixed 15-byte padding: GNU as versions choose different multi-byte NOPs.
+ * Preserve the reviewed 0x90 sender offset and embedded byte-exact image. */
+.byte 0x0f,0x1f,0x40,0x00,0x66,0x66,0x2e,0x0f,0x1f,0x84,0x00,0x00,0x00,0x00,0x00
+.p2align 4, 0x90
 .globl send_control_message
 .seh_proc send_control_message
 send_control_message:
