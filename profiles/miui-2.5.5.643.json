@@ -1,0 +1,759 @@
+{
+  "schema": 1,
+  "name": "miui-2.5.5.643-idm-3.1.494",
+  "status": "development; exact new phone behavior is not runtime validated",
+  "originalVersion": "2.5.5.643",
+  "runtimeVersion": "3.1.494",
+  "ssoVersion": "3.0.0.6",
+  "uiCompressionReference": {
+    "python": "3.14.6",
+    "zlib": "1.3.2"
+  },
+  "files": [
+    {
+      "path": "AIoT.exe",
+      "source": "miui",
+      "sourceSha256": "8f05cdfe743c7c553b75193a4958107ddf90f5c6e8441768e5b48905d81dbaad",
+      "bytes": 894168,
+      "outputSha256": "8f05cdfe743c7c553b75193a4958107ddf90f5c6e8441768e5b48905d81dbaad",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "AIoTDeskbandHelper.exe",
+      "source": "miui",
+      "sourceSha256": "a1968f1cca59982d430ea6bca83223424286093e34a9b6531eac8d68433b2ff2",
+      "bytes": 433696,
+      "outputSha256": "a1968f1cca59982d430ea6bca83223424286093e34a9b6531eac8d68433b2ff2",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "avcodec.dll",
+      "source": "miui",
+      "sourceSha256": "48e48984b31a25515abf974085125f6ab0299e995411e25906d561a355b7d7bc",
+      "bytes": 34578648,
+      "outputSha256": "48e48984b31a25515abf974085125f6ab0299e995411e25906d561a355b7d7bc",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "avdevice.dll",
+      "source": "miui",
+      "sourceSha256": "309e0602d023c05951556254422bb958da55ab0ea43a1cc420502f639c08dd70",
+      "bytes": 2408152,
+      "outputSha256": "309e0602d023c05951556254422bb958da55ab0ea43a1cc420502f639c08dd70",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "avfilter.dll",
+      "source": "miui",
+      "sourceSha256": "b88060a67a22ca9339b59098b46cdfe75ce76aa170f382d17a117715a94a06b9",
+      "bytes": 6590680,
+      "outputSha256": "b88060a67a22ca9339b59098b46cdfe75ce76aa170f382d17a117715a94a06b9",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "avformat.dll",
+      "source": "miui",
+      "sourceSha256": "09dc8dc2da44453d0e5e42e59b41aa3f709a2789686a2fd62c1199e1f5b797a1",
+      "bytes": 8092376,
+      "outputSha256": "09dc8dc2da44453d0e5e42e59b41aa3f709a2789686a2fd62c1199e1f5b797a1",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "avutil.dll",
+      "source": "miui",
+      "sourceSha256": "a34baf9c6a4a46baf4de4a82db6b0c40a7addffe10522a83a29c6f28ebf2ed33",
+      "bytes": 583896,
+      "outputSha256": "a34baf9c6a4a46baf4de4a82db6b0c40a7addffe10522a83a29c6f28ebf2ed33",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "cacert.pem",
+      "source": "miui",
+      "sourceSha256": "0c0cc2bef07a2047df1d28f01fe1daad61329ca2815e1bf915157fff596cb83d",
+      "bytes": 227153,
+      "outputSha256": "0c0cc2bef07a2047df1d28f01fe1daad61329ca2815e1bf915157fff596cb83d",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "cares.dll",
+      "source": "miui",
+      "sourceSha256": "d8c3fb81f8796d5a2a5dd96f0998fb96b4133b3b33087b15d64cd7346bf6de6d",
+      "bytes": 89304,
+      "outputSha256": "d8c3fb81f8796d5a2a5dd96f0998fb96b4133b3b33087b15d64cd7346bf6de6d",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "Channel.ini",
+      "source": "miui",
+      "sourceSha256": "be26ca61fdce5fd3565d82df73022c42501f6058b7a8d2e0cba0ac7aec3528ab",
+      "bytes": 42,
+      "outputSha256": "be26ca61fdce5fd3565d82df73022c42501f6058b7a8d2e0cba0ac7aec3528ab",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "curlpp.dll",
+      "source": "miui",
+      "sourceSha256": "4d08ef907b4dc3182f82ca56db4e2af3613084bd442dbccdf684123018ec8941",
+      "bytes": 175832,
+      "outputSha256": "4d08ef907b4dc3182f82ca56db4e2af3613084bd442dbccdf684123018ec8941",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "Duilib.dll",
+      "source": "miui",
+      "sourceSha256": "bd2239c9f6435281ec87ce4e8b63dd48787e75146ea62e1014059a9ed44ced39",
+      "bytes": 1446104,
+      "outputSha256": "bd2239c9f6435281ec87ce4e8b63dd48787e75146ea62e1014059a9ed44ced39",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "EN-US/LaunchBroker.dll.mui",
+      "source": "miui",
+      "sourceSha256": "9c001826c8495edb932ab48dae5c24ecf60507e5a758ba48d275cf72106f2513",
+      "bytes": 2560,
+      "outputSha256": "9c001826c8495edb932ab48dae5c24ecf60507e5a758ba48d275cf72106f2513",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "firewall_icmp.cmd",
+      "source": "miui",
+      "sourceSha256": "b0dce513068f0a9b37a95043801b19809fc480f584960a1866e3bf591e150bd2",
+      "bytes": 288,
+      "outputSha256": "b0dce513068f0a9b37a95043801b19809fc480f584960a1866e3bf591e150bd2",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "FixServiceTool.exe",
+      "source": "miui",
+      "sourceSha256": "88ff3354fba04d257b90655c848add7083cf97dabc709598496d036369c8bf89",
+      "bytes": 99032,
+      "outputSha256": "88ff3354fba04d257b90655c848add7083cf97dabc709598496d036369c8bf89",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "gflags.dll",
+      "source": "miui",
+      "sourceSha256": "28c10f6fe0b569ff903062d30b0fbae4c6003a58703f46ef79828662fa3d4dde",
+      "bytes": 131800,
+      "outputSha256": "28c10f6fe0b569ff903062d30b0fbae4c6003a58703f46ef79828662fa3d4dde",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "glog.dll",
+      "source": "miui",
+      "sourceSha256": "4a58b7d4dbdc1a11e90d0ebf40eb57ac0fb0bc791da74189e5d9e93e2c534ff4",
+      "bytes": 145112,
+      "outputSha256": "4a58b7d4dbdc1a11e90d0ebf40eb57ac0fb0bc791da74189e5d9e93e2c534ff4",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "idmruntime.dll",
+      "source": "runtime",
+      "sourceSha256": "16e75380656bfeb9de90b376cb4baf22bf6dd7926b0491f021b5a64126cc72a0",
+      "bytes": 5121240,
+      "outputSha256": "08736f84579b6263d44bcfd2de94d746b3223927815fec35bdc2f08070217f04",
+      "uiTransform": false,
+      "patches": [
+        {
+          "offset": "0x363228",
+          "before": "5c5c2e5c506970655c41444630394342312d374345342d343730412d394334302d374543363836344636413046",
+          "after": "5c5c2e5c506970655c46324545373239462d443431462d344137342d394538412d433738303932363134444332",
+          "reason": "Private IDM pipe, paired with the project-owned runtime host"
+        }
+      ]
+    },
+    {
+      "path": "idmsdk.dll",
+      "source": "runtime",
+      "sourceSha256": "3d907704d55cbeef91f88f5f470126fa9c06a1589afc5678d73383d7158800fe",
+      "bytes": 1143000,
+      "outputSha256": "0588816cdaa0e6927355682cf9504f65556180181c2ec76dbfaa7b833d7fc36b",
+      "uiTransform": false,
+      "patches": [
+        {
+          "offset": "0xb1048",
+          "before": "5c5c2e5c506970655c41444630394342312d374345342d343730412d394334302d374543363836344636413046",
+          "after": "5c5c2e5c506970655c46324545373239462d443431462d344137342d394538412d433738303932363134444332",
+          "reason": "Private IDM pipe, paired with the project-owned runtime host"
+        }
+      ]
+    },
+    {
+      "path": "LaunchBroker.dll",
+      "source": "miui",
+      "sourceSha256": "27a1dca440413de7a83b0176159cd0d06c5c6ba1ea7f39b7ae22cf8aa55d4d33",
+      "bytes": 129240,
+      "outputSha256": "27a1dca440413de7a83b0176159cd0d06c5c6ba1ea7f39b7ae22cf8aa55d4d33",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libcrypto-1_1-x64.dll",
+      "source": "miui",
+      "sourceSha256": "ec2fa6ed95ad576d65736f92be3b0ab21e8e7b9035c0e2bb4f58d474fbb403ce",
+      "bytes": 3414232,
+      "outputSha256": "ec2fa6ed95ad576d65736f92be3b0ab21e8e7b9035c0e2bb4f58d474fbb403ce",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libcurl.dll",
+      "source": "miui",
+      "sourceSha256": "d1ae1ebe4f73fe499be8836a7ef342d715897e6f7547de739285b784ab4c2983",
+      "bytes": 396504,
+      "outputSha256": "d1ae1ebe4f73fe499be8836a7ef342d715897e6f7547de739285b784ab4c2983",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libcurl_wrapper.dll",
+      "source": "miui",
+      "sourceSha256": "4a079aafbcf48110048f9215e71291726ba423c94bb7d99a83e9ec54bcbbb67a",
+      "bytes": 95960,
+      "outputSha256": "4a079aafbcf48110048f9215e71291726ba423c94bb7d99a83e9ec54bcbbb67a",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "LIBEAY32.dll",
+      "source": "miui",
+      "sourceSha256": "5f3e794662358176478ff7640c418013ab1d53b47a09cb69a13fe2c0306b7d68",
+      "bytes": 2134744,
+      "outputSha256": "5f3e794662358176478ff7640c418013ab1d53b47a09cb69a13fe2c0306b7d68",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libmirror.dll",
+      "source": "miui",
+      "sourceSha256": "a22210f49c9eb3f9fffd3755e8a110483cd5b81c277219f4a6d42c9ffc6fdba3",
+      "bytes": 840920,
+      "outputSha256": "a22210f49c9eb3f9fffd3755e8a110483cd5b81c277219f4a6d42c9ffc6fdba3",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libpng16.dll",
+      "source": "miui",
+      "sourceSha256": "77630c20b3825a916d06c79148a801ec561c723dfe3b9e5b7538ea8f8ba5dc67",
+      "bytes": 202968,
+      "outputSha256": "77630c20b3825a916d06c79148a801ec561c723dfe3b9e5b7538ea8f8ba5dc67",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libprotobuf.dll",
+      "source": "miui",
+      "sourceSha256": "5f0eacaa373fbe45ee344e8146d47ba9925169c7359fc0038c06f535859ce143",
+      "bytes": 2389720,
+      "outputSha256": "5f0eacaa373fbe45ee344e8146d47ba9925169c7359fc0038c06f535859ce143",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libssh2.dll",
+      "source": "miui",
+      "sourceSha256": "a3ed8f59bac026da4105b518a52a3d655d161274c4ccf579fd420cbadd65e761",
+      "bytes": 238808,
+      "outputSha256": "a3ed8f59bac026da4105b518a52a3d655d161274c4ccf579fd420cbadd65e761",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "libssl-1_1-x64.dll",
+      "source": "miui",
+      "sourceSha256": "1fb2f717463fa766f8b552fe349302fed51291b296dacaa4c299b00447da4246",
+      "bytes": 692440,
+      "outputSha256": "1fb2f717463fa766f8b552fe349302fed51291b296dacaa4c299b00447da4246",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "log4cplusU.dll",
+      "source": "miui",
+      "sourceSha256": "5b63bbdcd994fee291b364767e851bf2faed0167dcda5ec01cb6c109726fb2b1",
+      "bytes": 1095896,
+      "outputSha256": "5b63bbdcd994fee291b364767e851bf2faed0167dcda5ec01cb6c109726fb2b1",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MAFSvr.exe",
+      "source": "miui",
+      "sourceSha256": "90d0cb52b0d334e49b826aceb935057034e138497556540cbf63e7aa2d01da68",
+      "bytes": 270552,
+      "outputSha256": "90d0cb52b0d334e49b826aceb935057034e138497556540cbf63e7aa2d01da68",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiDrop.dll",
+      "source": "miui",
+      "sourceSha256": "46efa8aa4d56400a82523ce74808428b89a49c31430269cb536064c4e508514e",
+      "bytes": 336461528,
+      "outputSha256": "682abf0f45420d79fb8f898e2c3a91ffeaa2c9314c704814ec432bf6707df99a",
+      "uiTransform": true,
+      "patches": [
+        {
+          "offset": "0x116aa5",
+          "before": "e8b6440000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
+          "offset": "0x116aec",
+          "before": "e80f570000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
+          "offset": "0x11375a",
+          "before": "e8518d0000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
+          "offset": "0x114751",
+          "before": "e85a7d0000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
+          "offset": "0x141d1e",
+          "before": "01",
+          "after": "03",
+          "reason": "Retain the previously connected QR pc_v display compatibility; actual appVersion remains unchanged"
+        },
+        {
+          "offset": "0x31eee0",
+          "before": "5c005c002e005c0070006900700065005c00300043004600430031003300310044002d0034003300330031002d0034003200460031002d0042003300390033002d004500330046004300300035004400450032003400380046000000",
+          "after": "5c005c002e005c0070006900700065005c00460037003100330039003700360030002d0033003800330044002d0034004200340033002d0039003100410034002d003900370036004600370046003200450031004400380035000000",
+          "reason": "Keep all three media IPC endpoints in the same isolated namespace"
+        },
+        {
+          "offset": "0xa6290",
+          "before": "e8db520000",
+          "after": "9090909090",
+          "reason": "Skip StartMedia(--pre_launch=1) only in the IDM connection callback."
+        }
+      ]
+    },
+    {
+      "path": "midrop_log.properties",
+      "source": "miui",
+      "sourceSha256": "be9658e49bd88b89870452966cbafec955eb57cda86111a813fc20419e22ceec",
+      "bytes": 572,
+      "outputSha256": "be9658e49bd88b89870452966cbafec955eb57cda86111a813fc20419e22ceec",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiDropDeskband.dll",
+      "source": "miui",
+      "sourceSha256": "1b8a70cb2ec3e6583968bb45a54503a32f44883c09f2dae15070009d80c3efcd",
+      "bytes": 102432,
+      "outputSha256": "1b8a70cb2ec3e6583968bb45a54503a32f44883c09f2dae15070009d80c3efcd",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "midropservice.properties",
+      "source": "miui",
+      "sourceSha256": "3d4715313d8977e72a7829fa8a1c47eaf8a5c8b4b8fad74410aa5ac7def94f36",
+      "bytes": 579,
+      "outputSha256": "3d4715313d8977e72a7829fa8a1c47eaf8a5c8b4b8fad74410aa5ac7def94f36",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiDropShellExt.dll",
+      "source": "miui",
+      "sourceSha256": "093049f71a02c23d4fbb70005e5477e9c6ccdd5ab25f1ded674be6a72da76ffa",
+      "bytes": 74968,
+      "outputSha256": "093049f71a02c23d4fbb70005e5477e9c6ccdd5ab25f1ded674be6a72da76ffa",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiDropTransfer.dll",
+      "source": "miui",
+      "sourceSha256": "9f3494f7728deef2be2209d5089967f119de8d1879a334a41839cbdfefcc366e",
+      "bytes": 1518296,
+      "outputSha256": "9f3494f7728deef2be2209d5089967f119de8d1879a334a41839cbdfefcc366e",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MIPrivacyAgreement.dll",
+      "source": "miui",
+      "sourceSha256": "7fcb808ccfb029a8bfa63f02fa95647a586cf48b041653c85cc37ccc18de6867",
+      "bytes": 8091352,
+      "outputSha256": "7fcb808ccfb029a8bfa63f02fa95647a586cf48b041653c85cc37ccc18de6867",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "mirrorsink.dll",
+      "source": "miui",
+      "sourceSha256": "13ea4e61a8c0bb048f6255f098db70eebdc4ea210e814e1f8574a1700d6fdbd5",
+      "bytes": 778968,
+      "outputSha256": "13ea4e61a8c0bb048f6255f098db70eebdc4ea210e814e1f8574a1700d6fdbd5",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiScreenShare.exe",
+      "source": "miui",
+      "sourceSha256": "39a9fbc1be928031ace7184955a0854a7d75ef19e1bbb3b09c5529270ba2e470",
+      "bytes": 7987416,
+      "outputSha256": "f8121a68ef63de9ffccf05ef5d9b4077b5cba2a970513b535ef654019f23607c",
+      "uiTransform": false,
+      "patches": [
+        {
+          "offset": "0x1b8d10",
+          "before": "5c005c002e005c0070006900700065005c00300043004600430031003300310044002d0034003300330031002d0034003200460031002d0042003300390033002d004500330046004300300035004400450032003400380046000000",
+          "after": "5c005c002e005c0070006900700065005c00460037003100330039003700360030002d0033003800330044002d0034004200340033002d0039003100410034002d003900370036004600370046003200450031004400380035000000",
+          "reason": "Keep all three media IPC endpoints in the same isolated namespace"
+        },
+        {
+          "offset": "0x617d1",
+          "before": "e85afc0200488bc8e8a213030083e801",
+          "after": "488d4bd033d2e8f4730000e9f0000000",
+          "reason": "X / SC_CLOSE use native MainWindow::Show(false), preserve live HWND/clipboard/IPC and Guide; preserve original x64 unwind prologue and epilogue"
+        },
+        {
+          "offset": "0x6e234",
+          "before": "488d81c8f7ffff88542428488b89d0f7ffff488d5424304889442420488d05591c15000f104424204889442430488d44243048894424680f11442438e86b5300004883c478c3",
+          "after": "488d81c8f7ffff48894424388854244080791c007507b201e87fa9ffff488b442438488b4808488d542430488d054a1c150048894424304889542468e86b5300004883c478c3",
+          "reason": "ActiveSelf explicitly shows an internally hidden window before the original activation lambda; visible/maximized windows skip Show, original flash parameter, IsIconic/SC_RESTORE and foreground behavior remain"
+        }
+      ],
+      "mediaTransform": "background-video-v1",
+      "outputBytes": 8084992
+    },
+    {
+      "path": "MiScreenShareGuide.exe",
+      "source": "miui",
+      "sourceSha256": "1bac7508b5fd5fe92312a8d0ec2ee17f2301ce93bbe037f60139e2baec477cc6",
+      "bytes": 9698008,
+      "outputSha256": "f62299dff747872cc67f4ef5488647a1ebad39123c0b655aad546cc459392c82",
+      "uiTransform": false,
+      "patches": [
+        {
+          "offset": "0x297f60",
+          "before": "5c005c002e005c0070006900700065005c00300043004600430031003300310044002d0034003300330031002d0034003200460031002d0042003300390033002d004500330046004300300035004400450032003400380046000000",
+          "after": "5c005c002e005c0070006900700065005c00460037003100330039003700360030002d0033003800330044002d0034004200340033002d0039003100410034002d003900370036004600370046003200450031004400380035000000",
+          "reason": "Keep all three media IPC endpoints in the same isolated namespace"
+        },
+        {
+          "offset": "0x99099",
+          "before": "e892950000",
+          "after": "9090909090",
+          "reason": "Skip LaunchMirrorApp(source_ip/local_ip) only in OnTcpConnected."
+        },
+        {
+          "offset": "0xf3ec2",
+          "before": "0f84d5000000",
+          "after": "90e9d5000000",
+          "reason": "Permit Guide text-clipboard fallback while WiFi is connected; retain the existing miscreenshare IPC ownership check, authorized transport selection, text-only behavior, and phone-origin loop marker."
+        }
+      ]
+    },
+    {
+      "path": "MiSSO.dll",
+      "source": "runtime",
+      "sourceSha256": "b4346306bba98f8bd5b378554466cd1ce85285caf1a9c597068f9b431304b6e5",
+      "bytes": 483032,
+      "outputSha256": "b4346306bba98f8bd5b378554466cd1ce85285caf1a9c597068f9b431304b6e5",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "MiTwsRecords.dll",
+      "source": "miui",
+      "sourceSha256": "d0e4a1ea759f5270b6bfd9c0bb9dc95d230a406445c87df7a6b0be1ebc405700",
+      "bytes": 123096,
+      "outputSha256": "d0e4a1ea759f5270b6bfd9c0bb9dc95d230a406445c87df7a6b0be1ebc405700",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "msvcp140.dll",
+      "source": "miui",
+      "sourceSha256": "b2bc00d48cf8e0a81df9c61af9c9acf3104f9d918a6af7463936cbb18f329532",
+      "bytes": 632976,
+      "outputSha256": "b2bc00d48cf8e0a81df9c61af9c9acf3104f9d918a6af7463936cbb18f329532",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "msvcr100.dll",
+      "source": "miui",
+      "sourceSha256": "fcd2dfa3e5dfd0e41d0fa89df79d7c860fa6ce7be333fc7cc0c49a7080f13275",
+      "bytes": 833240,
+      "outputSha256": "fcd2dfa3e5dfd0e41d0fa89df79d7c860fa6ce7be333fc7cc0c49a7080f13275",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "OneTrackDll.dll",
+      "source": "miui",
+      "sourceSha256": "666dc8b616cb3a90f66e0dfaeead503e31cb9492fcd839e97da3f1b53de065d6",
+      "bytes": 941272,
+      "outputSha256": "666dc8b616cb3a90f66e0dfaeead503e31cb9492fcd839e97da3f1b53de065d6",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "postproc.dll",
+      "source": "miui",
+      "sourceSha256": "b6d3004e1708c6e8cfbe0badc9b96e97445bcdba3c4837f63e05adcfef7a3d59",
+      "bytes": 49880,
+      "outputSha256": "b6d3004e1708c6e8cfbe0badc9b96e97445bcdba3c4837f63e05adcfef7a3d59",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "PrivacyAuthorization.dll",
+      "source": "miui",
+      "sourceSha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
+      "bytes": 478424,
+      "outputSha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "pthreadVC2.dll",
+      "source": "miui",
+      "sourceSha256": "d331d0ec6e156b179792219533167643711fe6642d8e28594f72fc83307aeecb",
+      "bytes": 92888,
+      "outputSha256": "d331d0ec6e156b179792219533167643711fe6642d8e28594f72fc83307aeecb",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "QcBtWrapper.dll",
+      "source": "miui",
+      "sourceSha256": "e90a9e9bdaeb13b06ba6ae805693a701f6f7e39d8c40942a6358fe4f036933ca",
+      "bytes": 30424,
+      "outputSha256": "e90a9e9bdaeb13b06ba6ae805693a701f6f7e39d8c40942a6358fe4f036933ca",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "qrencode.dll",
+      "source": "miui",
+      "sourceSha256": "ee65e555d29b66d6dfb16952068e8b1c452201ddfa3b71798b7fe1818e24893a",
+      "bytes": 57048,
+      "outputSha256": "ee65e555d29b66d6dfb16952068e8b1c452201ddfa3b71798b7fe1818e24893a",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RadioOpt.dll",
+      "source": "miui",
+      "sourceSha256": "8f10ebb4fc7e83c19824ccaf488169cdbe44ca1d218c0a89797bc54aca24a5f8",
+      "bytes": 258776,
+      "outputSha256": "8f10ebb4fc7e83c19824ccaf488169cdbe44ca1d218c0a89797bc54aca24a5f8",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RealtekBTXiaomi.dll",
+      "source": "miui",
+      "sourceSha256": "dc7d5da77c2013ae76b3c3b50dd7480791940ffc6901f6fc5f0eb7543c672afe",
+      "bytes": 122584,
+      "outputSha256": "dc7d5da77c2013ae76b3c3b50dd7480791940ffc6901f6fc5f0eb7543c672afe",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RealtekWiFi.dll",
+      "source": "miui",
+      "sourceSha256": "e1db0d813de696070877d4b177f73a5d08f917d81afe7f4797472a6798555227",
+      "bytes": 2549976,
+      "outputSha256": "e1db0d813de696070877d4b177f73a5d08f917d81afe7f4797472a6798555227",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/devcon.exe",
+      "source": "miui",
+      "sourceSha256": "df048df347a738b6addec6f3fd65c73e371d0e11e2dc02f88f8ef307b964e1b7",
+      "bytes": 81920,
+      "outputSha256": "df048df347a738b6addec6f3fd65c73e371d0e11e2dc02f88f8ef307b964e1b7",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/driver_uninstall.cmd",
+      "source": "miui",
+      "sourceSha256": "0711c6e68cfde7df82c3d49eea7701e0f32598f710732ef688bc07bc25deac90",
+      "bytes": 197,
+      "outputSha256": "0711c6e68cfde7df82c3d49eea7701e0f32598f710732ef688bc07bc25deac90",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/Install_driver.cmd",
+      "source": "miui",
+      "sourceSha256": "894878b1d4d920615eb49dd553c2265e74225c65afcde9a32d7aaca224f04dae",
+      "bytes": 214,
+      "outputSha256": "894878b1d4d920615eb49dd553c2265e74225c65afcde9a32d7aaca224f04dae",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/miplayvac.cat",
+      "source": "miui",
+      "sourceSha256": "266f7d0b80da1f1ec61024a729adb9ec7300f24f497c1bee5a9c79acf38552ed",
+      "bytes": 11623,
+      "outputSha256": "266f7d0b80da1f1ec61024a729adb9ec7300f24f497c1bee5a9c79acf38552ed",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/MiPlayVAC.inf",
+      "source": "miui",
+      "sourceSha256": "491dbf9da41f609c658a5a0bb7cdedfbe871e1e16701e6df33e6e13986688aed",
+      "bytes": 4143,
+      "outputSha256": "491dbf9da41f609c658a5a0bb7cdedfbe871e1e16701e6df33e6e13986688aed",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "RecordDrivers/MiPlayVAC.sys",
+      "source": "miui",
+      "sourceSha256": "c481411042a4b48c6afc7e1cca64b1a894d9db207f55502a2e8c2df019efc0c4",
+      "bytes": 32312,
+      "outputSha256": "c481411042a4b48c6afc7e1cca64b1a894d9db207f55502a2e8c2df019efc0c4",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "recorder.dll",
+      "source": "miui",
+      "sourceSha256": "07d292e67157eb58fa0ea5e88f3aa09915f12038f4db16d385bc0e9568bbf7a2",
+      "bytes": 241368,
+      "outputSha256": "07d292e67157eb58fa0ea5e88f3aa09915f12038f4db16d385bc0e9568bbf7a2",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "SDL2.dll",
+      "source": "miui",
+      "sourceSha256": "68e640e13668ed368bfcace8a283b8c2a98fee6b1ad966e3125d2dfab72eba5f",
+      "bytes": 1155288,
+      "outputSha256": "68e640e13668ed368bfcace8a283b8c2a98fee6b1ad966e3125d2dfab72eba5f",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "sqlite3.dll",
+      "source": "miui",
+      "sourceSha256": "072d8792b6be924266e8355339c2cde89dea49cab220ddaa048db13e7c39645e",
+      "bytes": 975064,
+      "outputSha256": "072d8792b6be924266e8355339c2cde89dea49cab220ddaa048db13e7c39645e",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "sqlite3_x64.dll",
+      "source": "miui",
+      "sourceSha256": "1c949ad02e9a656e9c94f3d9960c1f4067cf3b229306b40b31543f5fc80b86a2",
+      "bytes": 1600216,
+      "outputSha256": "1c949ad02e9a656e9c94f3d9960c1f4067cf3b229306b40b31543f5fc80b86a2",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "ssleay32.dll",
+      "source": "miui",
+      "sourceSha256": "86ba1590f2a0b3570a985e28e620ea1ffcb7228008fbe554683dfc8a58a7771a",
+      "bytes": 371928,
+      "outputSha256": "86ba1590f2a0b3570a985e28e620ea1ffcb7228008fbe554683dfc8a58a7771a",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "swresample.dll",
+      "source": "miui",
+      "sourceSha256": "6b6885d74e32d9ac993d48ce05f9e6c27b26db56ace42e52fe5bd427c531630a",
+      "bytes": 323288,
+      "outputSha256": "6b6885d74e32d9ac993d48ce05f9e6c27b26db56ace42e52fe5bd427c531630a",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "swscale.dll",
+      "source": "miui",
+      "sourceSha256": "62f67777fdd87c6c1d02fc42f0ec1757a81a2b8302ee8027f889b78736c7743d",
+      "bytes": 558808,
+      "outputSha256": "62f67777fdd87c6c1d02fc42f0ec1757a81a2b8302ee8027f889b78736c7743d",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "Update.dll",
+      "source": "miui",
+      "sourceSha256": "17f6472a11fb2b52f800ffcfbf6df55fdf40f0b8812dec860bb91bab31fd6b99",
+      "bytes": 160984,
+      "outputSha256": "17f6472a11fb2b52f800ffcfbf6df55fdf40f0b8812dec860bb91bab31fd6b99",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "vcomp140.dll",
+      "source": "miui",
+      "sourceSha256": "5fc1d087402556529319e412d599ae445845cca97d620fd4efc762632cb3dd28",
+      "bytes": 185152,
+      "outputSha256": "5fc1d087402556529319e412d599ae445845cca97d620fd4efc762632cb3dd28",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "vcruntime140.dll",
+      "source": "miui",
+      "sourceSha256": "146327fb1877eb3663b8f54c4284c39009a64957bbfe98b618fb1581a2cb06a4",
+      "bytes": 87696,
+      "outputSha256": "146327fb1877eb3663b8f54c4284c39009a64957bbfe98b618fb1581a2cb06a4",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "vcruntime140_1.dll",
+      "source": "miui",
+      "sourceSha256": "04a8d42acc677e9c90b2e39bf12f25bb5abf9b0e8a9c657fa08968365537a167",
+      "bytes": 37592,
+      "outputSha256": "04a8d42acc677e9c90b2e39bf12f25bb5abf9b0e8a9c657fa08968365537a167",
+      "uiTransform": false,
+      "patches": []
+    },
+    {
+      "path": "zlib1.dll",
+      "source": "miui",
+      "sourceSha256": "d7c23f1b8cfb5483d9e0ea0db8749c0c70d87e52d80bdf40199299eb077d6a00",
+      "bytes": 96472,
+      "outputSha256": "d7c23f1b8cfb5483d9e0ea0db8749c0c70d87e52d80bdf40199299eb077d6a00",
+      "uiTransform": false,
+      "patches": []
+    }
+  ]
+}

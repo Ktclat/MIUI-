@@ -1,0 +1,307 @@
+[
+  {
+    "path": "AIoT.exe",
+    "sha256": "8f05cdfe743c7c553b75193a4958107ddf90f5c6e8441768e5b48905d81dbaad",
+    "bytes": 894168
+  },
+  {
+    "path": "AIoTDeskbandHelper.exe",
+    "sha256": "a1968f1cca59982d430ea6bca83223424286093e34a9b6531eac8d68433b2ff2",
+    "bytes": 433696
+  },
+  {
+    "path": "avcodec.dll",
+    "sha256": "48e48984b31a25515abf974085125f6ab0299e995411e25906d561a355b7d7bc",
+    "bytes": 34578648
+  },
+  {
+    "path": "avdevice.dll",
+    "sha256": "309e0602d023c05951556254422bb958da55ab0ea43a1cc420502f639c08dd70",
+    "bytes": 2408152
+  },
+  {
+    "path": "avfilter.dll",
+    "sha256": "b88060a67a22ca9339b59098b46cdfe75ce76aa170f382d17a117715a94a06b9",
+    "bytes": 6590680
+  },
+  {
+    "path": "avformat.dll",
+    "sha256": "09dc8dc2da44453d0e5e42e59b41aa3f709a2789686a2fd62c1199e1f5b797a1",
+    "bytes": 8092376
+  },
+  {
+    "path": "avutil.dll",
+    "sha256": "a34baf9c6a4a46baf4de4a82db6b0c40a7addffe10522a83a29c6f28ebf2ed33",
+    "bytes": 583896
+  },
+  {
+    "path": "cares.dll",
+    "sha256": "d8c3fb81f8796d5a2a5dd96f0998fb96b4133b3b33087b15d64cd7346bf6de6d",
+    "bytes": 89304
+  },
+  {
+    "path": "curlpp.dll",
+    "sha256": "4d08ef907b4dc3182f82ca56db4e2af3613084bd442dbccdf684123018ec8941",
+    "bytes": 175832
+  },
+  {
+    "path": "Duilib.dll",
+    "sha256": "bd2239c9f6435281ec87ce4e8b63dd48787e75146ea62e1014059a9ed44ced39",
+    "bytes": 1446104
+  },
+  {
+    "path": "FixServiceTool.exe",
+    "sha256": "88ff3354fba04d257b90655c848add7083cf97dabc709598496d036369c8bf89",
+    "bytes": 99032
+  },
+  {
+    "path": "gflags.dll",
+    "sha256": "28c10f6fe0b569ff903062d30b0fbae4c6003a58703f46ef79828662fa3d4dde",
+    "bytes": 131800
+  },
+  {
+    "path": "glog.dll",
+    "sha256": "4a58b7d4dbdc1a11e90d0ebf40eb57ac0fb0bc791da74189e5d9e93e2c534ff4",
+    "bytes": 145112
+  },
+  {
+    "path": "idmruntime.dll",
+    "sha256": "08736f84579b6263d44bcfd2de94d746b3223927815fec35bdc2f08070217f04",
+    "bytes": 5121240
+  },
+  {
+    "path": "idmsdk.dll",
+    "sha256": "0588816cdaa0e6927355682cf9504f65556180181c2ec76dbfaa7b833d7fc36b",
+    "bytes": 1143000
+  },
+  {
+    "path": "LaunchBroker.dll",
+    "sha256": "27a1dca440413de7a83b0176159cd0d06c5c6ba1ea7f39b7ae22cf8aa55d4d33",
+    "bytes": 129240
+  },
+  {
+    "path": "libcrypto-1_1-x64.dll",
+    "sha256": "ec2fa6ed95ad576d65736f92be3b0ab21e8e7b9035c0e2bb4f58d474fbb403ce",
+    "bytes": 3414232
+  },
+  {
+    "path": "libcurl_wrapper.dll",
+    "sha256": "4a079aafbcf48110048f9215e71291726ba423c94bb7d99a83e9ec54bcbbb67a",
+    "bytes": 95960
+  },
+  {
+    "path": "libcurl.dll",
+    "sha256": "d1ae1ebe4f73fe499be8836a7ef342d715897e6f7547de739285b784ab4c2983",
+    "bytes": 396504
+  },
+  {
+    "path": "LIBEAY32.dll",
+    "sha256": "5f3e794662358176478ff7640c418013ab1d53b47a09cb69a13fe2c0306b7d68",
+    "bytes": 2134744
+  },
+  {
+    "path": "libmirror.dll",
+    "sha256": "a22210f49c9eb3f9fffd3755e8a110483cd5b81c277219f4a6d42c9ffc6fdba3",
+    "bytes": 840920
+  },
+  {
+    "path": "libpng16.dll",
+    "sha256": "77630c20b3825a916d06c79148a801ec561c723dfe3b9e5b7538ea8f8ba5dc67",
+    "bytes": 202968
+  },
+  {
+    "path": "libprotobuf.dll",
+    "sha256": "5f0eacaa373fbe45ee344e8146d47ba9925169c7359fc0038c06f535859ce143",
+    "bytes": 2389720
+  },
+  {
+    "path": "libssh2.dll",
+    "sha256": "a3ed8f59bac026da4105b518a52a3d655d161274c4ccf579fd420cbadd65e761",
+    "bytes": 238808
+  },
+  {
+    "path": "libssl-1_1-x64.dll",
+    "sha256": "1fb2f717463fa766f8b552fe349302fed51291b296dacaa4c299b00447da4246",
+    "bytes": 692440
+  },
+  {
+    "path": "log4cplusU.dll",
+    "sha256": "5b63bbdcd994fee291b364767e851bf2faed0167dcda5ec01cb6c109726fb2b1",
+    "bytes": 1095896
+  },
+  {
+    "path": "MAFSvr.exe",
+    "sha256": "90d0cb52b0d334e49b826aceb935057034e138497556540cbf63e7aa2d01da68",
+    "bytes": 270552
+  },
+  {
+    "path": "MiDrop.dll",
+    "sha256": "682abf0f45420d79fb8f898e2c3a91ffeaa2c9314c704814ec432bf6707df99a",
+    "bytes": 336461528
+  },
+  {
+    "path": "MiDropDeskband.dll",
+    "sha256": "1b8a70cb2ec3e6583968bb45a54503a32f44883c09f2dae15070009d80c3efcd",
+    "bytes": 102432
+  },
+  {
+    "path": "MiDropShellExt.dll",
+    "sha256": "093049f71a02c23d4fbb70005e5477e9c6ccdd5ab25f1ded674be6a72da76ffa",
+    "bytes": 74968
+  },
+  {
+    "path": "MiDropTransfer.dll",
+    "sha256": "9f3494f7728deef2be2209d5089967f119de8d1879a334a41839cbdfefcc366e",
+    "bytes": 1518296
+  },
+  {
+    "path": "MIPrivacyAgreement.dll",
+    "sha256": "7fcb808ccfb029a8bfa63f02fa95647a586cf48b041653c85cc37ccc18de6867",
+    "bytes": 8091352
+  },
+  {
+    "path": "mirrorsink.dll",
+    "sha256": "13ea4e61a8c0bb048f6255f098db70eebdc4ea210e814e1f8574a1700d6fdbd5",
+    "bytes": 778968
+  },
+  {
+    "path": "MiScreenShare.exe",
+    "sha256": "f8121a68ef63de9ffccf05ef5d9b4077b5cba2a970513b535ef654019f23607c",
+    "bytes": 8084992
+  },
+  {
+    "path": "MiScreenShareGuide.exe",
+    "sha256": "f62299dff747872cc67f4ef5488647a1ebad39123c0b655aad546cc459392c82",
+    "bytes": 9698008
+  },
+  {
+    "path": "MiSSO.dll",
+    "sha256": "b4346306bba98f8bd5b378554466cd1ce85285caf1a9c597068f9b431304b6e5",
+    "bytes": 483032
+  },
+  {
+    "path": "MiTwsRecords.dll",
+    "sha256": "d0e4a1ea759f5270b6bfd9c0bb9dc95d230a406445c87df7a6b0be1ebc405700",
+    "bytes": 123096
+  },
+  {
+    "path": "msvcp140.dll",
+    "sha256": "b2bc00d48cf8e0a81df9c61af9c9acf3104f9d918a6af7463936cbb18f329532",
+    "bytes": 632976
+  },
+  {
+    "path": "msvcr100.dll",
+    "sha256": "fcd2dfa3e5dfd0e41d0fa89df79d7c860fa6ce7be333fc7cc0c49a7080f13275",
+    "bytes": 833240
+  },
+  {
+    "path": "OneTrackDll.dll",
+    "sha256": "666dc8b616cb3a90f66e0dfaeead503e31cb9492fcd839e97da3f1b53de065d6",
+    "bytes": 941272
+  },
+  {
+    "path": "postproc.dll",
+    "sha256": "b6d3004e1708c6e8cfbe0badc9b96e97445bcdba3c4837f63e05adcfef7a3d59",
+    "bytes": 49880
+  },
+  {
+    "path": "PrivacyAuthorization.dll",
+    "sha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
+    "bytes": 478424
+  },
+  {
+    "path": "pthreadVC2.dll",
+    "sha256": "d331d0ec6e156b179792219533167643711fe6642d8e28594f72fc83307aeecb",
+    "bytes": 92888
+  },
+  {
+    "path": "QcBtWrapper.dll",
+    "sha256": "e90a9e9bdaeb13b06ba6ae805693a701f6f7e39d8c40942a6358fe4f036933ca",
+    "bytes": 30424
+  },
+  {
+    "path": "qrencode.dll",
+    "sha256": "ee65e555d29b66d6dfb16952068e8b1c452201ddfa3b71798b7fe1818e24893a",
+    "bytes": 57048
+  },
+  {
+    "path": "RadioOpt.dll",
+    "sha256": "8f10ebb4fc7e83c19824ccaf488169cdbe44ca1d218c0a89797bc54aca24a5f8",
+    "bytes": 258776
+  },
+  {
+    "path": "RealtekBTXiaomi.dll",
+    "sha256": "dc7d5da77c2013ae76b3c3b50dd7480791940ffc6901f6fc5f0eb7543c672afe",
+    "bytes": 122584
+  },
+  {
+    "path": "RealtekWiFi.dll",
+    "sha256": "e1db0d813de696070877d4b177f73a5d08f917d81afe7f4797472a6798555227",
+    "bytes": 2549976
+  },
+  {
+    "path": "RecordDrivers\\devcon.exe",
+    "sha256": "df048df347a738b6addec6f3fd65c73e371d0e11e2dc02f88f8ef307b964e1b7",
+    "bytes": 81920
+  },
+  {
+    "path": "recorder.dll",
+    "sha256": "07d292e67157eb58fa0ea5e88f3aa09915f12038f4db16d385bc0e9568bbf7a2",
+    "bytes": 241368
+  },
+  {
+    "path": "SDL2.dll",
+    "sha256": "68e640e13668ed368bfcace8a283b8c2a98fee6b1ad966e3125d2dfab72eba5f",
+    "bytes": 1155288
+  },
+  {
+    "path": "sqlite3_x64.dll",
+    "sha256": "1c949ad02e9a656e9c94f3d9960c1f4067cf3b229306b40b31543f5fc80b86a2",
+    "bytes": 1600216
+  },
+  {
+    "path": "sqlite3.dll",
+    "sha256": "072d8792b6be924266e8355339c2cde89dea49cab220ddaa048db13e7c39645e",
+    "bytes": 975064
+  },
+  {
+    "path": "ssleay32.dll",
+    "sha256": "86ba1590f2a0b3570a985e28e620ea1ffcb7228008fbe554683dfc8a58a7771a",
+    "bytes": 371928
+  },
+  {
+    "path": "swresample.dll",
+    "sha256": "6b6885d74e32d9ac993d48ce05f9e6c27b26db56ace42e52fe5bd427c531630a",
+    "bytes": 323288
+  },
+  {
+    "path": "swscale.dll",
+    "sha256": "62f67777fdd87c6c1d02fc42f0ec1757a81a2b8302ee8027f889b78736c7743d",
+    "bytes": 558808
+  },
+  {
+    "path": "Update.dll",
+    "sha256": "17f6472a11fb2b52f800ffcfbf6df55fdf40f0b8812dec860bb91bab31fd6b99",
+    "bytes": 160984
+  },
+  {
+    "path": "vcomp140.dll",
+    "sha256": "5fc1d087402556529319e412d599ae445845cca97d620fd4efc762632cb3dd28",
+    "bytes": 185152
+  },
+  {
+    "path": "vcruntime140_1.dll",
+    "sha256": "04a8d42acc677e9c90b2e39bf12f25bb5abf9b0e8a9c657fa08968365537a167",
+    "bytes": 37592
+  },
+  {
+    "path": "vcruntime140.dll",
+    "sha256": "146327fb1877eb3663b8f54c4284c39009a64957bbfe98b618fb1581a2cb06a4",
+    "bytes": 87696
+  },
+  {
+    "path": "zlib1.dll",
+    "sha256": "d7c23f1b8cfb5483d9e0ea0db8749c0c70d87e52d80bdf40199299eb077d6a00",
+    "bytes": 96472
+  }
+]
