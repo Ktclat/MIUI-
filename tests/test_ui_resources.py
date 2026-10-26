@@ -124,7 +124,7 @@ class UiResourcesTests(unittest.TestCase):
 
     def test_original_title_png_is_deterministic_valid_and_fits_allocation(self):
         data = ui.title_png()
-        self.assertEqual(hashlib.sha256(data).hexdigest(), "6d41db68c892ae1be88a3dc8786228ed0d443561db306b947305817233e964b2")
+        self.assertEqual(data, ui.title_png())
         self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
         self.assertLessEqual(len(data), 2379)
         position, chunks = 8, {}
@@ -141,6 +141,8 @@ class UiResourcesTests(unittest.TestCase):
         self.assertEqual(set(chunks), {b"IHDR", b"IDAT", b"IEND"})
         self.assertEqual(struct.unpack(">IIBBBBB", chunks[b"IHDR"]), (118, 24, 8, 6, 0, 0, 0))
         rows = zlib.decompress(chunks[b"IDAT"])
+        # Deflate bytes can vary across zlib versions; the raster must not.
+        self.assertEqual(hashlib.sha256(rows).hexdigest(), "5016751f8c89b4c96edce8092844cc6a1f7a97e5fd83f0c52353f95abdf2d5f7")
         self.assertEqual(len(rows), 24 * (1 + 118 * 4))
         self.assertTrue(all(rows[y * 473] == 0 for y in range(24)))
         # Artwork has transparent margins and colored pixels, no vendor input.
