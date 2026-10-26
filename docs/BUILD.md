@@ -2,16 +2,18 @@
 
 ## 仅编译自有源码
 
-需要 Windows 10/11 x64、.NET Framework 4.x 的 64 位 C# 编译器及 PowerShell。
+需要 Windows 10/11 x64、.NET Framework 4.x 的 64 位 C# 编译器、PowerShell 7 和 Python 3.11+。
+本地验证使用 PowerShell 7.6.7，命令入口为 `pwsh`。
 编译脚本默认使用 `%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe`。
 不需要 Visual Studio、不需要小米账号，也不会自动启动厂商程序。
+自有图标由 Python 生成到被忽略的 `artifacts/generated`，没有第三方图像依赖。
 
 ```powershell
-powershell -File .\build.ps1
-powershell -File .\test.ps1
+pwsh -File .\build.ps1
+pwsh -File .\test.ps1
 ```
 
-`artifacts/source/MIUI+.exe` 是自有宿主，需要另行准备完整 `app` 目录才能运行原生功能。
+`artifacts/source/MIUI-.exe` 是自有宿主，需要另行准备完整 `app` 目录才能运行原生功能。
 它不是把小米闭源 DLL 重新编译成了开源程序。仓库不携带运行所需的厂商组件。
 
 ## 在本地组合完整副本
@@ -31,7 +33,7 @@ powershell -File .\test.ps1
 其他 zlib 版本只有产生完全相同的固定哈希结果才会被接受。
 
 ```powershell
-powershell -File .\build.ps1 `
+pwsh -File .\build.ps1 `
   -MiuiDirectory 'C:\Program Files\MI\AIoT\MiShare\2.5.5.643' `
   -RuntimeDirectory 'D:\LocalVendorFiles\XiaomiPCManager-5.8.1.121' `
   -OutputDirectory '.\artifacts\local'
@@ -41,7 +43,7 @@ Python 命令不在 PATH 时，增加 `-PythonExecutable 'C:\Path\To\python.exe'
 输出目录必须是新目录。脚本先检查全部输入，再创建独立副本，完成本地补丁和哈希回读；不会修改原安装。
 构建失败会保留有唯一名称的 `.building-*` 临时目录供检查，不会用递归删除去清理其他文件。
 
-正常使用时，先退出其他 MIUI+ 实例，再从完整副本目录打开 `MIUI+.exe`。
+正常使用时，先退出其他 MIUI+ 实例，再从完整副本目录打开 `MIUI-.exe`。
 不要只复制这个 EXE；其旁边的 `app` 目录也必须保留。
 
 ## 验证范围
@@ -60,14 +62,15 @@ Python 命令不在 PATH 时，增加 `-PythonExecutable 'C:\Path\To\python.exe'
 希望修改助手时，需要能生成 AMD64 Windows COFF 的 MinGW-w64 GCC/GNU assembler。
 
 ```powershell
-powershell -File .\verify-native.ps1 -GccExecutable 'gcc'
+pwsh -File .\verify-native.ps1 -GccExecutable 'gcc'
 ```
 
 该命令重编自有汇编，比对代码、相对调用和 unwind 元数据，再运行完全由自有内存 stub 组成的测试。
+另外检查 11 处统计阻断补丁与合成测试指令一致，并验证事件丢弃路径的参数保留、清理跳转和返回值。
 不会加载厂商程序。提供原始 `MiScreenShare.exe` 可额外执行只读 PE 校验及精确回退验证：
 
 ```powershell
-powershell -File .\verify-native.ps1 `
+pwsh -File .\verify-native.ps1 `
   -OriginalMediaFile 'C:\Program Files\MI\AIoT\MiShare\2.5.5.643\MiScreenShare.exe'
 ```
 

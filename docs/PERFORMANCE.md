@@ -36,7 +36,7 @@
 准备完整合法的本地候选后，执行：
 
 ```powershell
-powershell -File .\src\controller\benchmark.ps1 -CandidateDirectory '.\artifacts\local\app'
+pwsh -File .\src\controller\benchmark.ps1 -CandidateDirectory '.\artifacts\local\app'
 ```
 
 可用 `-BaselineSource 'D:\PreviousSource\CompatController.cs'` 同时测量自己保留的上一版源码。

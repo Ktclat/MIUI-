@@ -20,13 +20,13 @@ jobs:
         with:
           python-version: '3.14'
       - name: Compile project-owned launcher
-        shell: powershell
+        shell: pwsh
         run: .\build.ps1
       - name: Run synthetic file and source tests
-        shell: powershell
+        shell: pwsh
         run: .\test.ps1
       - name: Rebuild and test our native helper against memory stubs
-        shell: powershell
+        shell: pwsh
         run: .\verify-native.ps1
       - name: Reject accidentally tracked binaries or private outputs
         shell: python

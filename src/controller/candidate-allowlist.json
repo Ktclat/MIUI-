@@ -66,7 +66,7 @@
   },
   {
     "path": "idmruntime.dll",
-    "sha256": "08736f84579b6263d44bcfd2de94d746b3223927815fec35bdc2f08070217f04",
+    "sha256": "446b072bcc634f40dea8afc1f5c213eb943afdebb71a4a4e7f9c551cd6ddd79b",
     "bytes": 5121240
   },
   {
@@ -136,7 +136,7 @@
   },
   {
     "path": "MiDrop.dll",
-    "sha256": "682abf0f45420d79fb8f898e2c3a91ffeaa2c9314c704814ec432bf6707df99a",
+    "sha256": "9f151250c2b45c14027245f707cec154bf56341bd83aeaeefe6d503704ebcafe",
     "bytes": 336461528
   },
   {
@@ -206,7 +206,7 @@
   },
   {
     "path": "PrivacyAuthorization.dll",
-    "sha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
+    "sha256": "a3970883b9f76b6fac3e285476fc3ea7564839722058d3110dc169e23fb185cd",
     "bytes": 478424
   },
   {

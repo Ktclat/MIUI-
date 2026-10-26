@@ -1,11 +1,11 @@
 # 结构与边界
 
-自有 C# 宿主提供直接启动、重复启动激活、取消、生命周期管理及离线文件验证。
+自有 C# 宿主提供直接启动、常驻托盘、重复启动激活、取消、生命周期管理及离线文件验证。
 原生 UI、连接、消息路由、剪贴板和媒体功能仍来自使用者本地提供的小米组件。
 
 ```mermaid
 flowchart LR
-    E[自有 MIUI+ 入口] --> H[自有 runtime host]
+    E[自有 MIUI- 入口] --> H[自有 runtime host]
     E --> U[自有 UI host]
     H --> I[官方 IDM 运行库]
     U --> M[原生 MiDrop UI]
@@ -18,6 +18,16 @@ flowchart LR
 宿主使用自己的 Job 和父进程身份约束清理范围，启动前核对固定文件清单、组件版本、
 管道字段和宿主身份。每个进程仍独立校验它要加载的候选文件。
 私有管道名称用于区分本地副本，不是认证密钥，也不保证网络端口或系统数据完全隔离。
+
+托盘不会在原生窗口就绪后消失。“打开手机面板”只枚举类名为 `ScreenShareGuideWindow`
+的窗口，并同时核对它的进程属于本次 UI Job、实际 EXE 路径为本副本的 Guide。
+匹配后才发送原有 `0x5F6` 面板消息，并将前台权限交给该具体进程；不向任意同名窗口发消息。
+找不到已启动的面板时，会回到连接窗口并提示未就绪，不绕过连接流程强行启动投屏。
+Windows 允许进程拥有前台权限的条件仍适用；入队成功不是界面已经显示的确认。
+实现依据见 Microsoft 的 [Job 归属检查](https://learn.microsoft.com/en-us/windows/win32/api/jobapi/nf-jobapi-isprocessinjob)
+和 [前台权限](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-allowsetforegroundwindow) 文档。
+
+MIUI- 的新入口图标由 `tools/create_icon.py` 根据自有几何图形生成，构建不读取小米图标。
 
 原始客户端的账号头像入口和两条已确认的自动账号初始化入口已精简；
 没有伪造 UID、登录成功状态或手机授权。IDM 对 MiSSO 的依赖仍存在，不能声称完全删除了账号相关实现。

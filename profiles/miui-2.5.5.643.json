@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "name": "miui-2.5.5.643-idm-3.1.494",
-  "status": "development; exact new phone behavior is not runtime validated",
+  "name": "miui-minus-0.2-native-2.5.5.643-idm-3.1.494",
+  "status": "development; native UI, telemetry suppression and phone stop/resume are not runtime validated",
   "originalVersion": "2.5.5.643",
   "runtimeVersion": "3.1.494",
   "ssoVersion": "3.0.0.6",
@@ -168,9 +168,27 @@
       "source": "runtime",
       "sourceSha256": "16e75380656bfeb9de90b376cb4baf22bf6dd7926b0491f021b5a64126cc72a0",
       "bytes": 5121240,
-      "outputSha256": "08736f84579b6263d44bcfd2de94d746b3223927815fec35bdc2f08070217f04",
+      "outputSha256": "446b072bcc634f40dea8afc1f5c213eb943afdebb71a4a4e7f9c551cd6ddd79b",
       "uiTransform": false,
       "patches": [
+        {
+          "offset": "0x158dd0",
+          "before": "40",
+          "after": "c3",
+          "reason": "Void method; return before application metadata setup and upload service work is posted. Uninit only logs and owns no corresponding active resources."
+        },
+        {
+          "offset": "0x15d3b0",
+          "before": "40",
+          "after": "c3",
+          "reason": "Void sink reached by all thirteen OneTrackReporter event methods. Caller owns and destroys its serialized event string. No queue insertion, wakeup or event retention."
+        },
+        {
+          "offset": "0x15dca0",
+          "before": "48",
+          "after": "c3",
+          "reason": "No owned value arguments; worker calls and ignores return. Stop before dequeue, CURL upload and retry, as defense behind disabled initialization and queue."
+        },
         {
           "offset": "0x363228",
           "before": "5c5c2e5c506970655c41444630394342312d374345342d343730412d394334302d374543363836344636413046",
@@ -308,20 +326,38 @@
       "source": "miui",
       "sourceSha256": "46efa8aa4d56400a82523ce74808428b89a49c31430269cb536064c4e508514e",
       "bytes": 336461528,
-      "outputSha256": "682abf0f45420d79fb8f898e2c3a91ffeaa2c9314c704814ec432bf6707df99a",
+      "outputSha256": "9f151250c2b45c14027245f707cec154bf56341bd83aeaeefe6d503704ebcafe",
       "uiTransform": true,
       "patches": [
         {
-          "offset": "0x116aa5",
-          "before": "e8b6440000",
-          "after": "9090909090",
-          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+          "offset": "0x645e9",
+          "before": "80b9f8010000007522488b5218",
+          "after": "488b5c245033f6e96200000090",
+          "reason": "Load properties from the original stack slot, zero the original cleanup register, jump to native null-check / DestroyOneTrackEventProperties / string destruction. No enqueue and no dispatch."
         },
         {
-          "offset": "0x116aec",
-          "before": "e80f570000",
+          "offset": "0x6479b",
+          "before": "41803800742f48c745ef07000000",
+          "after": "4533f6e9d1030000909090909090",
+          "reason": "Skip property construction and queue invocation, zero the cleanup register, then run original owned string/map argument destructors."
+        },
+        {
+          "offset": "0xa6290",
+          "before": "e8db520000",
           "after": "9090909090",
-          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+          "reason": "Skip StartMedia(--pre_launch=1) only in the IDM connection callback."
+        },
+        {
+          "offset": "0xc7bf0",
+          "before": "48",
+          "after": "c3",
+          "reason": "Return before native SDK creation, instance ID request, consent-to-track callback and detached initializer."
+        },
+        {
+          "offset": "0xd39f4",
+          "before": "7461",
+          "after": "eb61",
+          "reason": "Use the existing no-display return before policy state changes, object creation or callback construction; do not record consent."
         },
         {
           "offset": "0x11375a",
@@ -336,10 +372,34 @@
           "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
         },
         {
+          "offset": "0x114f8f",
+          "before": "0f95c2",
+          "after": "b20190",
+          "reason": "Keep the native Show Panel action enabled for both Guide visibility states; preserve native connection/authorization and manual projection paths."
+        },
+        {
+          "offset": "0x116aa5",
+          "before": "e8b6440000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
+          "offset": "0x116aec",
+          "before": "e80f570000",
+          "after": "9090909090",
+          "reason": "Suppress reviewed account UI/session entry call; preserve authentication results"
+        },
+        {
           "offset": "0x141d1e",
           "before": "01",
           "after": "03",
           "reason": "Retain the previously connected QR pc_v display compatibility; actual appVersion remains unchanged"
+        },
+        {
+          "offset": "0x15f3d0",
+          "before": "0f849f0b0000",
+          "after": "e9a00b000090",
+          "reason": "Take the existing settings-handler return after control-name temporary cleanup and before constructing the privacy callback."
         },
         {
           "offset": "0x31eee0",
@@ -348,10 +408,22 @@
           "reason": "Keep all three media IPC endpoints in the same isolated namespace"
         },
         {
-          "offset": "0xa6290",
-          "before": "e8db520000",
-          "after": "9090909090",
-          "reason": "Skip StartMedia(--pre_launch=1) only in the IDM connection callback."
+          "offset": "0x346118",
+          "before": "4d004900550049002b000000",
+          "after": "4d004900550049002d000000",
+          "reason": "Window caption literal at RVA 0x347518; referenced by LEA RVA 0x15da52 then USER32.SetWindowTextW at RVA 0x15da5d. Only the caption product name is changed."
+        },
+        {
+          "offset": "0x49a508",
+          "before": "4d004900550049002b000000",
+          "after": "4d004900550049002d000000",
+          "reason": "VERSION resource [16,1,2052], FileDescription value; resource starts at file 0x49a410, size 696. CompanyName and copyright are retained."
+        },
+        {
+          "offset": "0x49a640",
+          "before": "4d004900550049002b000000",
+          "after": "4d004900550049002d000000",
+          "reason": "VERSION resource [16,1,2052], ProductName value; resource starts at file 0x49a410, size 696. CompanyName and copyright are retained."
         }
       ]
     },
@@ -535,9 +607,40 @@
       "source": "miui",
       "sourceSha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
       "bytes": 478424,
-      "outputSha256": "c989f8f0985b1c50ad70597ad62646c1a7a41c6aa8005778a48aaf9af79e839b",
+      "outputSha256": "a3970883b9f76b6fac3e285476fc3ea7564839722058d3110dc169e23fb185cd",
       "uiTransform": false,
-      "patches": []
+      "patches": [
+        {
+          "offset": "0x2a350",
+          "before": "405556",
+          "after": "33c0c3",
+          "reason": "Explicit false, before any thread creation. Keeps original Init/UnInit paired to avoid unbalanced COM/curl lifecycle."
+        },
+        {
+          "offset": "0x2aa80",
+          "before": "48",
+          "after": "c3",
+          "reason": "Return before libcurl_wrapper::post at RVA 2BB26. Caller holds the tracker object and no owned value argument is transferred."
+        },
+        {
+          "offset": "0x40cc0",
+          "before": "48",
+          "after": "c3",
+          "reason": "No serialization or writes of telemetry queue privacy.cache. Does not delete existing caches or alter actual consent records."
+        },
+        {
+          "offset": "0x41a90",
+          "before": "40",
+          "after": "c3",
+          "reason": "All arguments are references (embedded signature). Return before capture, allocation, queueing and cache save."
+        },
+        {
+          "offset": "0x422d0",
+          "before": "40",
+          "after": "c3",
+          "reason": "All arguments are references (embedded signature). Return before collection, request creation and queueing."
+        }
+      ]
     },
     {
       "path": "pthreadVC2.dll",

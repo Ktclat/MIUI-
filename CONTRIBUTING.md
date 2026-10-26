@@ -3,7 +3,7 @@
 本项目欢迎个人学习研究范围内的改进，请先阅读 [LICENSE](LICENSE) 和 [NOTICE](NOTICE)。
 
 1. Fork 后修改自有宿主、测试或构建工具。仅涉及源码时无需准备小米组件。
-2. 运行 `python -m unittest discover -s tests -v` 和 `powershell -File .\test.ps1`。
+2. 使用 PowerShell 7（本地验证为 7.6.7），运行 `pwsh -File .\test.ps1`；原生助手改动还需运行 `pwsh -File .\verify-native.ps1`。
 3. 如修改原生行为，记录输入 SHA-256、文件偏移、原字节、新字节、实际调用链、回滚方法和未验证事项。
 4. 对原生补丁保留精确版本约束；不要通过更新白名单来掩盖未知文件变化。
 5. 提交说明应区分静态推断、合成测试、本机文件测试和真机实测。

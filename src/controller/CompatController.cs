@@ -13,6 +13,12 @@ using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
+[assembly: AssemblyTitle("MIUI-")]
+[assembly: AssemblyProduct("MIUI-")]
+[assembly: AssemblyDescription("MIUI- personal-study native interconnection host")]
+[assembly: AssemblyVersion("0.2.0.0")]
+[assembly: AssemblyFileVersion("0.2.0.0")]
+
 namespace MiuiCompatExperiment
 {
     internal static class Program
@@ -23,7 +29,7 @@ namespace MiuiCompatExperiment
         internal const string IsolatedPipe = @"\\.\Pipe\F2EE729F-D41F-4A74-9E8A-C78092614DC2";
         internal const string MediaPipe = @"\\.\pipe\F7139760-383D-4B43-91A4-976F7F2E1D85";
         internal const string UiArgumentsVariable = "MIUI_COMPAT_PRIVATE_UI_ARGUMENTS";
-        internal const string ActivateEvent = @"Local\MIUICompatActivate_F2EE729F_D41F_4A74_9E8A_C78092614DC2";
+        internal const string ActivateEvent = @"Local\MIUIMinusActivate_F2EE729F_D41F_4A74_9E8A_C78092614DC2";
         internal static readonly string BaseDirectory = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory);
         internal static readonly string ExePath = Path.GetFullPath(Assembly.GetExecutingAssembly().Location);
 
@@ -38,7 +44,7 @@ namespace MiuiCompatExperiment
                 if (options.UiHost) return UiHost.Run(options);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                using (Mutex instance = new Mutex(false, @"Local\MIUICompatController_F2EE729F_D41F_4A74_9E8A_C78092614DC2"))
+                using (Mutex instance = new Mutex(false, @"Local\MIUIMinusController_F2EE729F_D41F_4A74_9E8A_C78092614DC2"))
                 {
                     bool acquired;
                     try { acquired = instance.WaitOne(0); }
@@ -51,7 +57,7 @@ namespace MiuiCompatExperiment
                         }
                         catch (WaitHandleCannotBeOpenedException)
                         {
-                            MessageBox.Show("MIUI+ 已在运行，请使用已打开的窗口或托盘图标。", "MIUI+", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("MIUI- 已在运行，请使用已打开的窗口或托盘图标。", "MIUI-", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         return 0;
                     }
@@ -69,7 +75,7 @@ namespace MiuiCompatExperiment
                 string path = Path.Combine(BaseDirectory, "startup-error.json");
                 Json.Write(path, new Dictionary<string, object> { { "error", ex.ToString() }, { "utc", DateTime.UtcNow.ToString("o") } });
                 if (Array.IndexOf(args, "--runtime-host") < 0 && Array.IndexOf(args, "--ui-host") < 0 && Array.IndexOf(args, "--self-test") < 0 && Array.IndexOf(args, "--offline-self-test") < 0)
-                    MessageBox.Show(ex.Message, "MIUI+", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "MIUI-", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 1;
             }
         }
@@ -450,7 +456,7 @@ namespace MiuiCompatExperiment
         {
             // Guide can remain after the visible AIoT window exits. Old native code
             // locates and terminates media helpers by name, so check the whole family.
-            foreach (string name in new string[] { "AIoT", "MiScreenShare", "MiScreenShareGuide", "XiaomiPcManager", "MiPcContinuity" })
+            foreach (string name in new string[] { "AIoT", "MIUI-Compat-UIHost", "MiScreenShare", "MiScreenShareGuide", "XiaomiPcManager", "MiPcContinuity" })
             {
                 foreach (Process process in Process.GetProcessesByName(name))
                 {
@@ -461,7 +467,7 @@ namespace MiuiCompatExperiment
                         try { path = process.MainModule.FileName; }
                         catch (InvalidOperationException) { continue; }
                         catch { throw new InvalidOperationException("检测到互联组件 " + name + "（PID " + process.Id + "），无法核实路径。请先正常退出相关互联程序。"); }
-                        throw new InvalidOperationException("互联组件仍在运行：" + name + "（PID " + process.Id + "）。请先正常退出 MIUI+ 或小米电脑管家；若窗口已关，可检查托盘。\r\n" + path);
+                        throw new InvalidOperationException("互联组件仍在运行：" + name + "（PID " + process.Id + "）。请先正常退出旧版 MIUI+、其他 MIUI- 或小米电脑管家，再启动新版。\r\n" + path);
                     }
                 }
             }
@@ -472,11 +478,9 @@ namespace MiuiCompatExperiment
     {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate IntPtr VersionCall();
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate int NoArgCall();
-        [UnmanagedFunctionPointer(CallingConvention.Cdecl)] private delegate void LoggerCall(IntPtr path, int level);
         private readonly List<IntPtr> libraries = new List<IntPtr>();
         private readonly string root;
         private readonly NoArgCall start, stop, started;
-        private readonly LoggerCall logger;
         internal readonly string Version;
 
         internal NativeRuntime(string directory, Action<string> progress)
@@ -496,7 +500,6 @@ namespace MiuiCompatExperiment
             start = Get<NoArgCall>(module, "idmrt_start");
             stop = Get<NoArgCall>(module, "idmrt_stop");
             started = Get<NoArgCall>(module, "idmrt_is_started");
-            logger = Get<LoggerCall>(module, "idmrt_set_logger");
             // Keep loaded modules alive until this bounded host exits. No unload occurs during active native work.
         }
 
@@ -532,13 +535,6 @@ namespace MiuiCompatExperiment
             return paths;
         }
 
-        internal void ConfigureLog(string path)
-        {
-            byte[] data = Encoding.UTF8.GetBytes(path + "\0");
-            IntPtr pointer = Marshal.AllocHGlobal(data.Length);
-            try { Marshal.Copy(data, 0, pointer, data.Length); logger(pointer, 3); }
-            finally { Marshal.FreeHGlobal(pointer); }
-        }
         internal int Start() { return start(); }
         internal int Stop() { return stop(); }
         internal int IsStarted() { return started(); }
@@ -569,11 +565,9 @@ namespace MiuiCompatExperiment
                     });
                     status["runtimeVersion"] = runtime.Version;
                     status["loadedModules"] = runtime.LoadedModules();
-                    string logDirectory = Path.Combine(options.Candidate, "compat-logs");
-                    Directory.CreateDirectory(logDirectory);
-                    string logPath = Path.Combine(logDirectory, "runtime-" + Path.GetFileName(options.SessionDirectory) + ".log");
-                    runtime.ConfigureLog(logPath);
-                    status["nativeLog"] = logPath;
+                    // Do not opt ordinary users into the vendor's detailed file logger.
+                    // Vendor-internal default logging is a separate, bounded audit.
+                    status["nativeDetailedLogConfigured"] = false;
                     status["phase"] = "loaded";
                     Json.Write(statusPath, status);
                     if (stopEvent.WaitOne(0) || parent.HasExited) return 0;
@@ -798,6 +792,12 @@ namespace MiuiCompatExperiment
             if (ui != null && !ui.HasExited) Native.ShowOwnedWindow(ui.Id);
         }
 
+        internal bool ShowPhonePanel()
+        {
+            if (ui == null || ui.HasExited) return false;
+            return Native.ShowOwnedPhonePanel(uiJob, Path.Combine(candidate, "MiScreenShareGuide.exe"));
+        }
+
         internal Task StopAsync()
         {
             lock (gate)
@@ -819,7 +819,7 @@ namespace MiuiCompatExperiment
                 hostJob.Terminate();
                 host.Wait(1000);
             }
-            Log("本次实验已结束；没有操作系统服务或其他 MIUI+ 进程。");
+            Log("本次实验已结束；没有操作系统服务或其他 MIUI- 进程。");
         }
 
         private void Log(string text)
@@ -854,12 +854,13 @@ namespace MiuiCompatExperiment
         private readonly EventWaitHandle activate = new EventWaitHandle(false, EventResetMode.AutoReset, Program.ActivateEvent);
         private readonly NotifyIcon tray = new NotifyIcon();
         private readonly ContextMenuStrip menu = new ContextMenuStrip();
-        private readonly ToolStripMenuItem open = new ToolStripMenuItem("打开 MIUI+");
+        private readonly ToolStripMenuItem open = new ToolStripMenuItem("打开 MIUI-");
+        private readonly ToolStripMenuItem panel = new ToolStripMenuItem("打开手机面板");
         private readonly ToolStripMenuItem quit = new ToolStripMenuItem("退出并断开连接");
         private readonly Icon icon;
         private TestSession session;
         private Task startup;
-        private bool closing, ready, showAfterStart, disposed;
+        private bool closing, ready, showAfterStart, panelAfterStart, disposed;
         private string failure;
 
         internal DirectApplicationContext(string directory)
@@ -867,13 +868,15 @@ namespace MiuiCompatExperiment
             candidate = directory;
             icon = Icon.ExtractAssociatedIcon(Program.ExePath);
             tray.Icon = icon ?? SystemIcons.Application;
-            tray.Text = "MIUI+ · 正在启动";
+            tray.Text = "MIUI- · 正在启动";
             menu.Items.Add(open);
+            menu.Items.Add(panel);
             menu.Items.Add(new ToolStripSeparator());
             menu.Items.Add(quit);
             tray.ContextMenuStrip = menu;
             tray.Visible = true;
             open.Click += delegate { ShowConnection(); };
+            panel.Click += delegate { ShowPhonePanel(); };
             tray.DoubleClick += delegate { ShowConnection(); };
             quit.Click += delegate { BeginExit(); };
             timer.Interval = 300;
@@ -896,11 +899,12 @@ namespace MiuiCompatExperiment
                 await session.StartAsync(cancellation.Token);
                 cancellation.Token.ThrowIfCancellationRequested();
                 ready = true;
-                tray.Text = "MIUI+ · 后台运行";
-                // MiDrop already owns its native tray/menu (including exit and
-                // collaboration). Keep only that icon once the original UI is ready.
-                tray.Visible = false;
-                if (showAfterStart) session.ShowConnectionWindow();
+                tray.Text = "MIUI- · 后台运行";
+                // The DLL-hosted UI does not reliably supply its own tray icon.
+                // Keep our icon for the entire session, including after closing a window.
+                tray.Visible = true;
+                if (panelAfterStart) ShowPhonePanel();
+                else if (showAfterStart) session.ShowConnectionWindow();
             }
             catch (OperationCanceledException) { }
             catch (Exception ex) { failure = ex.Message; }
@@ -924,6 +928,17 @@ namespace MiuiCompatExperiment
             session.ShowConnectionWindow();
         }
 
+        private void ShowPhonePanel()
+        {
+            if (closing) return;
+            if (!ready) { panelAfterStart = true; return; }
+            if (!session.ShowPhonePanel())
+            {
+                session.ShowConnectionWindow();
+                tray.ShowBalloonTip(3500, "MIUI-", "手机面板尚未就绪，请在连接窗口确认设备已连接。", ToolTipIcon.Info);
+            }
+        }
+
         private async void BeginExit()
         {
             if (closing) return;
@@ -931,8 +946,9 @@ namespace MiuiCompatExperiment
             ready = false;
             timer.Stop();
             open.Enabled = false;
+            panel.Enabled = false;
             quit.Enabled = false;
-            tray.Text = "MIUI+ · 正在退出";
+            tray.Text = "MIUI- · 正在退出";
             cancellation.Cancel();
             try
             {
@@ -947,7 +963,7 @@ namespace MiuiCompatExperiment
                 tray.Visible = false;
             }
             if (failure != null)
-                MessageBox.Show("MIUI+ 未能正常启动或已退出。\r\n\r\n" + failure, "MIUI+", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("MIUI- 未能正常启动或已退出。\r\n\r\n" + failure, "MIUI-", MessageBoxButtons.OK, MessageBoxIcon.Error);
             ExitThread();
         }
 
@@ -988,7 +1004,7 @@ namespace MiuiCompatExperiment
         internal ControllerForm(string directory)
         {
             candidate = directory;
-            Text = "MIUI+ 原生适配 · 开发预览版";
+            Text = "MIUI- 原生适配 · 开发预览版";
             Font = new Font("Microsoft YaHei UI", 10F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(710, 460);
@@ -998,10 +1014,10 @@ namespace MiuiCompatExperiment
 
             var header = new Panel { Dock = DockStyle.Top, Height = 102, Padding = new Padding(22, 17, 18, 0) };
             header.Controls.Add(new Label { Text = "目标：小米 15 / 澎湃 OS 3；扫码兼容尚未完成实机验证", ForeColor = Color.FromArgb(139, 86, 15), Dock = DockStyle.Bottom, Height = 31 });
-            header.Controls.Add(new Label { Text = "MIUI+ 原生连接", Font = new Font(Font.FontFamily, 20F, FontStyle.Bold), Dock = DockStyle.Top, Height = 42 });
-            var help = new Label { Text = "使用 MIUI+ 原生扫码、手机控制和剪贴板功能。\r\n先退出原版 MIUI+ / 小米电脑管家，再打开连接窗口。", Dock = DockStyle.Top, Height = 78, Padding = new Padding(22, 12, 18, 0) };
+            header.Controls.Add(new Label { Text = "MIUI- 原生连接", Font = new Font(Font.FontFamily, 20F, FontStyle.Bold), Dock = DockStyle.Top, Height = 42 });
+            var help = new Label { Text = "使用 MIUI- 原生扫码、手机控制和剪贴板功能。\r\n先退出旧版 MIUI+、其他 MIUI- 或小米电脑管家，再打开连接窗口。", Dock = DockStyle.Top, Height = 78, Padding = new Padding(22, 12, 18, 0) };
             var actions = new FlowLayoutPanel { Dock = DockStyle.Top, Height = 68, Padding = new Padding(18, 12, 0, 0) };
-            start.Text = "打开 MIUI+ 连接窗口"; start.Size = new Size(240, 40); start.BackColor = Color.FromArgb(236, 103, 34); start.ForeColor = Color.White; start.FlatStyle = FlatStyle.Flat;
+            start.Text = "打开 MIUI- 连接窗口"; start.Size = new Size(240, 40); start.BackColor = Color.FromArgb(236, 103, 34); start.ForeColor = Color.White; start.FlatStyle = FlatStyle.Flat;
             end.Text = "结束连接"; end.Size = new Size(118, 40); end.Enabled = false;
             check.Text = "检查文件"; check.Size = new Size(118, 40);
             actions.Controls.Add(start); actions.Controls.Add(end); actions.Controls.Add(check);
@@ -1192,6 +1208,13 @@ namespace MiuiCompatExperiment
             finally { Native.CloseHandle(info.hThread); }
         }
 
+        internal bool ContainsProcessHandle(IntPtr process)
+        {
+            bool contained;
+            // Never pass a null job: that would test membership in any job instead.
+            return handle != IntPtr.Zero && Native.IsProcessInJob(process, handle, out contained) && contained;
+        }
+
         internal void Terminate() { if (handle != IntPtr.Zero) Native.TerminateJobObject(handle, 0); }
         public void Dispose() { if (handle != IntPtr.Zero) { Native.CloseHandle(handle); handle = IntPtr.Zero; } }
     }
@@ -1247,6 +1270,9 @@ namespace MiuiCompatExperiment
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern IntPtr CreateJobObject(IntPtr attributes, string name);
         [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool SetInformationJobObject(IntPtr job, int infoClass, ref ExtendedLimits info, uint size);
         [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool AssignProcessToJobObject(IntPtr job, IntPtr process);
+        [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool IsProcessInJob(IntPtr process, IntPtr job, out bool result);
+        [DllImport("kernel32.dll", SetLastError = true)] private static extern IntPtr OpenProcess(uint access, bool inheritHandle, uint processId);
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] private static extern bool QueryFullProcessImageName(IntPtr process, uint flags, StringBuilder name, ref uint size);
         [DllImport("kernel32.dll", SetLastError = true)] internal static extern bool TerminateJobObject(IntPtr job, uint exitCode);
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)] internal static extern bool CreateProcess(string app, StringBuilder commandLine, IntPtr processAttributes, IntPtr threadAttributes, bool inherit, uint flags, IntPtr environment, string currentDirectory, ref StartupInfo startup, out ProcessInformation info);
         [DllImport("kernel32.dll", SetLastError = true)] internal static extern uint ResumeThread(IntPtr thread);
@@ -1262,6 +1288,44 @@ namespace MiuiCompatExperiment
         [DllImport("user32.dll")] private static extern bool IsIconic(IntPtr window);
         [DllImport("user32.dll")] private static extern bool ShowWindowAsync(IntPtr window, int command);
         [DllImport("user32.dll")] private static extern bool SetForegroundWindow(IntPtr window);
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)] private static extern int GetClassName(IntPtr window, StringBuilder name, int capacity);
+        [DllImport("user32.dll", SetLastError = true)] private static extern bool AllowSetForegroundWindow(uint processId);
+        [DllImport("user32.dll", SetLastError = true)] private static extern bool PostMessage(IntPtr window, uint message, IntPtr wParam, IntPtr lParam);
+
+        internal static bool ShowOwnedPhonePanel(OwnedJob job, string expectedExecutable)
+        {
+            bool queued = false;
+            EnumWindows(delegate(IntPtr window, IntPtr parameter)
+            {
+                var className = new StringBuilder(256);
+                if (GetClassName(window, className, className.Capacity) == 0 || className.ToString() != "ScreenShareGuideWindow") return true;
+                uint pid;
+                if (GetWindowThreadProcessId(window, out pid) == 0 || pid == 0) return true;
+                IntPtr process = OpenProcess(0x1000, false, pid); // PROCESS_QUERY_LIMITED_INFORMATION
+                if (process == IntPtr.Zero) return true;
+                try
+                {
+                    if (!job.ContainsProcessHandle(process)) return true;
+                    var path = new StringBuilder(32768);
+                    uint size = (uint)path.Capacity;
+                    if (!QueryFullProcessImageName(process, 0, path, ref size) || !Program.SamePath(path.ToString(), expectedExecutable)) return true;
+                    uint currentPid;
+                    if (GetWindowThreadProcessId(window, out currentPid) == 0 || currentPid != pid) return true;
+                    // Grant foreground permission only to the verified owned Guide.
+                    // This preserves its native panel action; it never starts casting itself.
+                    AllowSetForegroundWindow(pid);
+                    queued = PostMessage(window, 0x5F6, IntPtr.Zero, IntPtr.Zero);
+                    if (queued)
+                    {
+                        ShowWindowAsync(window, IsIconic(window) ? 9 : 5);
+                        SetForegroundWindow(window);
+                    }
+                    return !queued;
+                }
+                finally { CloseHandle(process); }
+            }, IntPtr.Zero);
+            return queued;
+        }
 
         internal static void ShowOwnedWindow(uint processId)
         {
